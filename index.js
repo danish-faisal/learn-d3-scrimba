@@ -25,6 +25,23 @@ var barChart = svg
     return "translate(" + translate + ")";
   });
 
+/** Creating Labels */
+var text = svg
+  .selectAll("text")
+  .data(dataset)
+  .enter()
+  .append("text")
+  .text(function (d) {
+    return d;
+  })
+  .attr("y", function (d) {
+    return svgHeight - d - 2;
+  })
+  .attr("x", function (d, i) {
+    return barWidth * i;
+  })
+  .attr("fill", "#A64C38");
+
 /** Data Loading and Binding */
 /*
 var dataset = [1, 2, 3, 4, 5];
